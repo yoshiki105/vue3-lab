@@ -11,6 +11,8 @@
       <div
         v-if="!item.soldOut"
         class="item"
+        :class="{ 'selected-item': item.selected }"
+        @click="item.selected = !item.selected"
       >
         <div class="thumbnail">
           <img :src="item.image" alt="">
@@ -35,7 +37,8 @@ const items = ref([
       '刻んだ野菜をアボカドと混ぜてディップに。こんがり焼いたバゲットとお召し上がりください。',
     price: 480,
     image: '/images/item1.jpg',
-    soldOut: false
+    soldOut: false,
+    selected: false
   },
   {
     id: 2,
@@ -44,7 +47,8 @@ const items = ref([
       '子供のころに食べたかった、あのホットケーキを再現しました。素朴でどこか懐かしい味をどうぞ。',
     price: 1180,
     image: '/images/item2.jpg',
-    soldOut: false
+    soldOut: false,
+    selected: false
   },
   {
     id: 3,
@@ -53,7 +57,8 @@ const items = ref([
       'ロサンゼルス生まれのスパークリングウォーター。ノンカロリー、ノンアルコールの新感覚飲料です。',
     price: 320,
     image: '/images/item3.jpg',
-    soldOut: true
+    soldOut: true,
+    selected: false
   },
   {
     id: 4,
@@ -62,7 +67,8 @@ const items = ref([
       'イタリア産チーズをたっぷりかけたアツアツのフレンチフライ。みんな大好きな一品です。',
     price: 670,
     image: '/images/item4.jpg',
-    soldOut: false
+    soldOut: false,
+    selected: false
   }
 ])
 
@@ -151,5 +157,9 @@ body {
 .item>div.description>span>.price {
   font-size: 28px;
   font-weight: bold;
+}
+
+.selected-item {
+  background-color: #e3f2fd;
 }
 </style>
