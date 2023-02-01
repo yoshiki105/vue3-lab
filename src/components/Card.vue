@@ -1,15 +1,38 @@
 <template>
   <div class="thumbnail">
-    <img :src="item.image" alt="">
+    <img :src="image" alt="">
   </div>
   <div class="description">
-    <h2>{{ item.name }}</h2>
-    <p>{{ item.description }}</p>
-    <span>¥<span class="price">{{ pricePrefix(item.price) }}</span></span>
+    <h2>{{ name }}</h2>
+    <p>{{ description }}</p>
+    <span>¥<span class="price">{{ pricePrefix(price) }}</span></span>
   </div>
 </template>
 
-<script>
+<script setup>
+defineProps({
+  name: {
+    type: String,
+    default: '',
+    required: false
+  },
+  description: {
+    type: String,
+    default: '',
+    required: false
+  },
+  price: {
+    type: Number,
+    default: '',
+    required: false
+  },
+  image: {
+    type: String,
+    default: '',
+    required: false
+  },
+})
+
 function pricePrefix(price) {
   return price.toLocaleString()
 }

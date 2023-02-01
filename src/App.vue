@@ -16,7 +16,12 @@
         @keyup.enter="item.selected = !item.selected"
         tabindex="0"
       >
-      <Card />
+      <Card
+        :image="item.image"
+        :name="item.name"
+        :description="item.description"
+        :price="item.price"
+      />
       </div>
     </template>
   </main>
