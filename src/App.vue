@@ -13,6 +13,8 @@
         class="item"
         :class="{ 'selected-item': item.selected }"
         @click="item.selected = !item.selected"
+        @keyup.enter="item.selected = !item.selected"
+        tabindex="0"
       >
         <div class="thumbnail">
           <img :src="item.image" alt="">
