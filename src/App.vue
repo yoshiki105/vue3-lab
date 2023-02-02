@@ -17,10 +17,12 @@
         tabindex="0"
       >
       <Card
+        :id="item.id"
         :image="item.image"
         :name="item.name"
         :description="item.description"
         :price="item.price"
+        @sold-out="changeSoldOut"
       />
       </div>
     </template>
@@ -73,6 +75,11 @@ const items = ref([
     selected: false
   }
 ])
+
+function changeSoldOut(id) {
+  const pickElm = items.value.find(item => item.id == id)
+  pickElm.soldOut = true
+}
 </script>
 
 <style>
